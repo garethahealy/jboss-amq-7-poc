@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.garethahealy.poms</groupId>
+        <artifactId>plugins-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.garethahealy.jboss-amq-7-poc</groupId>
+    <artifactId>jboss-amq-7-poc-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>GarethHealy :: JBoss AMQ 7 PoC</name>
+
+    <scm>
+        <connection>scm:git:https://github.com/garethahealy/jboss-amq-7-poc/tree/master</connection>
+        <developerConnection>scm:git:https://github.com/garethahealy/jboss-amq-7-poc/tree/master</developerConnection>
+        <url>https://github.com/garethahealy/jboss-amq-7-poc/tree/master</url>
+    </scm>
+
+    <properties>
+        <license.skipDownloadLicenses>true</license.skipDownloadLicenses>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dependencies</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <!-- Broker -->
+                <dependency>
+                    <groupId>org.jboss.amq</groupId>
+                    <artifactId>amq</artifactId>
+                    <version>7.0.0.Alpha</version>
+                    <classifier>bin</classifier>
+                    <type>zip</type>
+                </dependency>
+                <!-- Interconnect -->
+                <dependency>
+                    <groupId>org.jboss.interconnect</groupId>
+                    <artifactId>qpid-dispatch-router</artifactId>
+                    <version>0.6.0-6.el7.x86_64</version>
+                    <type>rpm</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.interconnect</groupId>
+                    <artifactId>qpid-dispatch-tools</artifactId>
+                    <version>0.6.0-6.el7.x86_64</version>
+                    <type>rpm</type>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+</project>
