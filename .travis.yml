@@ -1,5 +1,5 @@
 language: java
-install: mvn clean install -Dgpg.skip=true -DskipTests
+install: mvn clean install -Dgpg.skip=true -DskipTests -P\!dependencies
 jdk:
   - openjdk7
   - oraclejdk7
