@@ -5,7 +5,7 @@ set -x
 # Install QPid from EPEL Testing, as its not on EPEL/RHEL yet, only v0.5 is and we want v0.6
 sudo yum update -y epel-release &&
     sudo yum install -y qpid-dispatch-router qpid-dispatch-tools qpid-dispatch-docs --enablerepo=epel-testing &&
-    sudo yum install python-qpid-proton python-qpid-proton-docs --enablerepo=epel-testing &&
+    sudo yum install -y python-qpid-proton python-qpid-proton-docs --enablerepo=epel-testing &&
     sudo systemctl enable qdrouterd.service &&
     sudo systemctl start qdrouterd.service &&
     sudo systemctl status qdrouterd.service &&
