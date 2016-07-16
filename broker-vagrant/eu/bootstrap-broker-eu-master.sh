@@ -11,6 +11,8 @@ cd /opt/rh &&
     sed -i "s/0.0.0.0/10.21.2.10/g" brokereu-master/etc/broker.xml &&
     brokereu-master/bin/artemis-service start
 
+sudo yum install -y python-qpid-proton python-qpid-proton-docs --enablerepo=epel-testing
+
 time_elapsed=0
 has_started=0
 while (( has_started <= 0 ))
