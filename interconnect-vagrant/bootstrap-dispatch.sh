@@ -8,9 +8,13 @@ sudo yum update -y epel-release &&
     sudo yum install -y python-qpid-proton python-qpid-proton-docs --enablerepo=epel-testing &&
     sudo systemctl enable qdrouterd.service &&
     sudo systemctl start qdrouterd.service &&
-    sudo systemctl status qdrouterd.service &&
-    which qdrouterd &&
-    ll /usr/share/proton-0.13.0/examples/python
+    sudo systemctl status qdrouterd.service
+
+# Print out some helpful info for developer
+which qdrouterd &&
+    ls -lrt /usr/share/proton-0.13.0/examples/python &&
+    cat /etc/qpid-dispatch/qdrouterd.conf &&
+    qdstat -a
 
 # Open firewall for amqp
 sudo systemctl restart firewalld
@@ -20,4 +24,10 @@ sudo firewall-cmd --reload
 
 firewall-cmd --get-active-zones
 firewall-cmd --zone=public --list-ports
+
+## Example command to receive/send a single message
+# python /usr/share/proton-0.13.0/examples/python/simple_recv.py -a /jms.queue.first -m 1
+# python /usr/share/proton-0.13.0/examples/python/simple_send.py -a /jms.queue.first -m 1
+
+
 

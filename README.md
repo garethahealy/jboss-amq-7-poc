@@ -7,6 +7,7 @@ Collection of internal/public docs which i found.
 - https://mojo.redhat.com/docs/DOC-1071615
 - https://mojo.redhat.com/docs/DOC-1075402
 - https://access.redhat.com/documentation/en/red-hat-jboss-a-mq?version=7.0-alpha
+- https://qpid.apache.org/releases/qpid-dispatch-0.6.0/book/book.html
 
 ## Whats this then boy-o?
 PoC looking into the new JBoss AMQ7 Broker (https://github.com/apache/activemq-artemis) and JBoss AMQ7 Interconnect (https://github.com/apache/qpid-dispatch)
