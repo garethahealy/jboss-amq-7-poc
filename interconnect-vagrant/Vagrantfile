@@ -41,19 +41,82 @@ Vagrant.configure(2) do |config|
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
 
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  config.vm.provider "virtualbox" do |vb|
+    # Customize the amount of memory on the VM:
+    vb.memory = 512
+    vb.cpus = 1
+  end
+
   # Config Interconnect Dispatch VM
-  config.vm.define :interconnectdispatch do |interconnectdispatch|
+  config.vm.define :interconnectdispatchusa do |interconnectdispatchusa|
     # Assign network config
-    interconnectdispatch.vm.hostname = "interconnect-dispatch.amq7.vagrant.local"
-    interconnectdispatch.vm.network "private_network", ip: "10.22.1.10"
+    interconnectdispatchusa.vm.hostname = "interconnect-dispatch-usa.amq7.vagrant.local"
+    interconnectdispatchusa.vm.network "private_network", ip: "10.22.1.11"
+
+    # Add qdrouterd
+    interconnectdispatchusa.vm.provision "file", source: "usa/qdrouterd.conf", destination: "/tmp/qdrouterd.conf"
 
     # Enable provisioning with a shell script. Additional provisioners such as
     # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
     # documentation for more information about their specific syntax and use.
-    #interconnectdispatch.vm.provision :shell, path: "bootstrap-os.sh", privileged: false
-    interconnectdispatch.vm.provision :shell, path: "bootstrap-dispatch.sh", privileged: false
+    interconnectdispatchusa.vm.provision :shell, path: "bootstrap-dispatch.sh", privileged: false
 
     # Complete message
-    interconnectdispatch.vm.post_up_message = "http://interconnect-dispatch.amq7.vagrant.local"
+    interconnectdispatchusa.vm.post_up_message = "http://interconnect-dispatch-usa.amq7.vagrant.local"
   end
+
+  config.vm.define :interconnectdispatcheu do |interconnectdispatcheu|
+    # Assign network config
+    interconnectdispatcheu.vm.hostname = "interconnect-dispatch-eu.amq7.vagrant.local"
+    interconnectdispatcheu.vm.network "private_network", ip: "10.22.2.11"
+
+    # Add qdrouterd
+    interconnectdispatcheu.vm.provision "file", source: "eu/qdrouterd.conf", destination: "/tmp/qdrouterd.conf"
+
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+    # documentation for more information about their specific syntax and use.
+    interconnectdispatcheu.vm.provision :shell, path: "bootstrap-dispatch.sh", privileged: false
+
+    # Complete message
+    interconnectdispatcheu.vm.post_up_message = "http://interconnect-dispatch-eu.amq7.vagrant.local"
+  end
+
+  config.vm.define :interconnectdispatchice do |interconnectdispatchice|
+    # Assign network config
+    interconnectdispatchice.vm.hostname = "interconnect-dispatch-ice.amq7.vagrant.local"
+    interconnectdispatchice.vm.network "private_network", ip: "10.22.3.11"
+
+    # Add qdrouterd
+    interconnectdispatchice.vm.provision "file", source: "iceland/qdrouterd.conf", destination: "/tmp/qdrouterd.conf"
+
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+    # documentation for more information about their specific syntax and use.
+    interconnectdispatchice.vm.provision :shell, path: "bootstrap-dispatch.sh", privileged: false
+
+    # Complete message
+    interconnectdispatchice.vm.post_up_message = "http://interconnect-dispatch-ice.amq7.vagrant.local"
+  end
+
+  config.vm.define :interconnectdispatchjap do |interconnectdispatchjap|
+    # Assign network config
+    interconnectdispatchjap.vm.hostname = "interconnect-dispatch-jap.amq7.vagrant.local"
+    interconnectdispatchjap.vm.network "private_network", ip: "10.22.4.11"
+
+    # Add qdrouterd
+    interconnectdispatchjap.vm.provision "file", source: "japan/qdrouterd.conf", destination: "/tmp/qdrouterd.conf"
+
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+    # documentation for more information about their specific syntax and use.
+    interconnectdispatchjap.vm.provision :shell, path: "bootstrap-dispatch.sh", privileged: false
+
+    # Complete message
+    interconnectdispatchjap.vm.post_up_message = "http://interconnect-dispatch-jap.amq7.vagrant.local"
+  end
+
 end
