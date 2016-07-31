@@ -7,8 +7,10 @@ Image to run JBoss AMQ 7 Alpha HA brokers
 
 ## How to run
 - vagrant up
-- vagrant ssh brokerusa
-- vagrant ssh brokereu
+- vagrant ssh brokerusamaster
+- vagrant ssh brokerusaslave
+- vagrant ssh brokereumaster
+- vagrant ssh brokereuslave
 
 ## Web URLS for hawt.io
 U: admin / P: admin
