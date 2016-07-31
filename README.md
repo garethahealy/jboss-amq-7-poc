@@ -30,9 +30,10 @@ If all brokers and interconnects have started, you now have a network of brokers
     
 If everything works, 10 messages will be:
 
-    1. Produced to the USA Broker
-    2. Routed via either the Iceland or Japan interconnect to the Europe interconnect
-    3. Consumed from Europe interconnect
+    1. Produced to the USA Broker and persisted
+    2. Routed via the USA interconnect to either...
+    3. ... the Iceland or Japan interconnect and ... 
+    4. Consumed from Europe interconnect
     
 If you run the following on the interconnects, you will notice the stats change as messages are produced/consumed:
 
