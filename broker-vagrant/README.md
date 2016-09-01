@@ -14,6 +14,6 @@ Image to run JBoss AMQ 7 Alpha HA brokers
 
 ## Web URLS for hawt.io
 U: admin / P: admin
-- http://brokerusa.amq7.vagrant.local:8161/hawtio
-- http://brokereu.amq7.vagrant.local:8161/hawtio
+- http://broker-usa-master.amq7.vagrant.local:8161/hawtio
+- http://broker-eu-master.amq7.vagrant.local:8161/hawtio
 
