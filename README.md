@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/garethahealy/jboss-amq-7-poc.svg?branch=master)](https://travis-ci.org/garethahealy/jboss-amq-7-poc)
+[![License](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 
 # jboss-amq-7-poc
 Collection of internal/public docs which i found:
