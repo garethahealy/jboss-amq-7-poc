@@ -2,8 +2,11 @@
 [![License](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 
 # jboss-amq-7-poc
-Collection of internal/public docs which i found:
+This repo was for my own self-learning. If you are interested in what is coming from RedHat HQ, please see:
+- https://access.redhat.com/documentation/en-us/reference_architectures/2017/html/clustering_fault-tolerance_and_messaging_patterns_with_red_hat_jboss_amq_7/
 
+## Docs
+Collection of internal/public docs which i found:
 - https://mojo.redhat.com/docs/DOC-1077802
 - https://mojo.redhat.com/docs/DOC-1071615
 - https://mojo.redhat.com/docs/DOC-1075402
